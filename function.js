@@ -14,6 +14,10 @@ function validUserName(name) {
 
         document.getElementById("formUserName").appendChild(alert);
 
+        setTimeout(function () {
+            name.classList.remove("vibrate");
+        }, 250);
+
 
         setTimeout(function () {
             document.getElementById("formUserName").removeChild(alert);

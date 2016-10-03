@@ -3,18 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Register</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="homeWork1.css">
-    <script src="homeWork1.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="function.js"></script>
 </head>
 
 <body>
@@ -27,26 +28,24 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" id="formUserName">
                 <label class="col-md-4 control-label" for="userName">User Name</label>
-                <div class="col-md-4">
+                <div class="col-md-4" >
                     <input id="userName" name="userName" type="text" placeholder="User Name must have more than 6 character !!!" class="form-control input-md" required="" onblur="validUserName(this)">
-
-
                 </div>
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" id="formEmail">
                 <label class="col-md-4 control-label" for="email">Email</label>
-                <div class="col-md-4">
+                <div class="col-md-4" >
                     <input id="email" name="email" type="text" placeholder="Email must have nomal character, &quot;@&quot; and &quot;.&quot; key word !!!" class="form-control input-md" required="" onblur="validEmail(this)">
 
                 </div>
             </div>
 
             <!-- Password input-->
-            <div class="form-group">
+            <div class="form-group"  id="formPassword">
                 <label class="col-md-4 control-label" for="password">Password</label>
                 <div class="col-md-4">
                     <input id="password" name="password" type="password" placeholder="Password must have at least 1 digit, 1 special character, 1 lower case and 1 upper case !!!" class="form-control input-md" required="" onblur="validPassword(this)">
@@ -54,9 +53,9 @@
             </div>
 
             <!-- Password input-->
-            <div class="form-group">
+            <div class="form-group" id="formRePassword">
                 <label class="col-md-4 control-label" for="rePassword">Re-Password</label>
-                <div class="col-md-4">
+                <div class="col-md-4" >
                     <input id="rePassword" name="rePassword" type="password" placeholder="Two password must the same !!!" class="form-control input-md" required="" onblur="validRePassword(this)">
                 </div>
             </div>
@@ -115,7 +114,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="register"></label>
                 <div class="col-md-4">
-                    <button id="register" name="register" class="btn btn-primary">Register</button>
+                    <button id="register" name="register" type="submit" class="btn btn-primary" onclick="register()">Register</button>
                 </div>
             </div>
 

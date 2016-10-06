@@ -1,32 +1,34 @@
-var resultUserName, resultEmail, resultPassword, resultRePassword;
-
-function validUserName(name) {
-    if (name.value.trim().length < 6) {
-
-        name.classList.add("vibrate");
-
-        var alert = document.createElement('span');
-        var textAlert = document.createTextNode("Wrong User Name Syntax !!!");
-        alert.setAttribute('class', 'help-block');
-        alert.appendChild(textAlert);
+var resultValidUserName, resultValidEmail, resultValidPassword, resultValidRePassword;
 
 
+function vibrateAndNotify(taget) {
 
-        document.getElementById("formUserName").appendChild(alert);
+    taget.classList.add("vibrate");
+    setTimeout(function () {
+        taget.classList.remove("vibrate");
+    }, 250);
 
-        setTimeout(function () {
-            name.classList.remove("vibrate");
-        }, 250);
+    var notify = document.createElement('span');
+    var textNotify = document.createTextNode("Wrong User Name Syntax !!!");
+    alert.setAttribute('class', 'help-block');
+    alert.appendChild(textNotify);
+    document.getElementById("formUserName").appendChild(notify);
+    setTimeout(function () {
+        document.getElementById("formUserName").removeChild(notify);
+    }, 1000);
+}
 
+function validUserName() {
 
-        setTimeout(function () {
-            document.getElementById("formUserName").removeChild(alert);
-        }, 1000);
+    var valueUserName = document.getElementById("userName").value.trim();
+    var formUserName = document.getElementById("formUserName");
 
-        resultUserName = false;
+    if (valueUserName.length < 6) {
+        vibrateAndNotify(formUserName);
+        resultValidUserName = false;
 
     } else {
-        resultUserName = true;
+        resultValidUserName = true;
     }
 
 }
@@ -34,7 +36,7 @@ function validUserName(name) {
 
 
 
-function validEmail(email) {
+function validEmail() {
     var filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!filter.test(email.value)) {
@@ -62,7 +64,7 @@ function validEmail(email) {
     }
 }
 
-function validPassword(password) {
+function validPassword() {
     var filter = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]))/;
 
     if (!filter.test(password.value)) {
@@ -88,7 +90,7 @@ function validPassword(password) {
     }
 }
 
-function validRePassword(rePassword) {
+function reValidPassword() {
     if (rePassword.value !== document.getElementById("password").value) {
         rePassword.classList.add("vibrate");
 
@@ -117,9 +119,9 @@ function validRePassword(rePassword) {
 
 function register() {
 
-    if((resultUserName === false) || (resultEmail === false) || (resultPassword === false) || (resultRePassword === false)){
+    if ((resultUserName === false) || (resultEmail === false) || (resultPassword === false) || (resultRePassword === false)) {
         alert("Wrong Syntax, please check back");
-    }else{
+    } else {
         window.location.replace("result.html");
     }
 
